@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     const main = document.getElementById("main");
     const letter = document.getElementById("letter");
     const sentencesHTML = document.getElementsByClassName("line");
+    const music = document.getElementById("music")
     const sentencesText = []
 
 
@@ -19,6 +20,8 @@ window.addEventListener("load", () => {
         container.style.display = "none";
         main.style.display = "flex";
         main.animate(main_animate, main_animate_timing);
+        music.currentTime = 15;
+        music.play();
         for (var i = 0; i < sentencesHTML.length; i++) {
             sentencesText.push(sentencesHTML[i].innerText);
             sentencesHTML[i].innerHTML = "";
