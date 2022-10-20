@@ -3,8 +3,8 @@ window.addEventListener("load", () => {
     const main = document.getElementById("main");
     const letter = document.getElementById("letter");
     const sentencesHTML = document.getElementsByClassName("line");
-    const music = document.getElementById("music")
-    const sentencesText = []
+    const music = new Audio("./assets/tracks/Sac-Moi-Em-Hong-Minh-Hang.mp3");
+    const sentencesText = [];
 
 
     const main_animate = [
