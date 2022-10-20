@@ -1,0 +1,252 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body,
+html,
+#container,
+#main {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*container*/
+
+#container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: content-box no-repeat radial-gradient(white 50%,
+            rgba(60, 120, 255, 0.3));
+}
+
+
+/*notify*/
+
+.notify {
+    font-size: 2.5rem;
+    font-style: bold;
+    font-family: 'Pangolin', sans-serif;
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #e2dd41 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3s linear infinite;
+    display: inline-block;
+}
+
+p {
+    text-align: center;
+}
+
+.sender {
+    font-size: 3rem;
+}
+
+@keyframes textclip {
+    to {
+        background-position: -150% center;
+    }
+}
+
+/*letter*/
+.letter:hover {
+    cursor: pointer;
+}
+
+
+.letter-head,
+.letter-body {
+    position: absolute;
+    animation: 2.5s letter-animate ease-in-out infinite;
+    border-radius: 10%;
+}
+
+.letter-body {
+    border: solid #9dc8eb;
+    border-width: 5vh 7.5vh;
+    border-top-color: transparent;
+    top: calc(50% - 5vh);
+    left: calc(50% - 7.5vh);
+
+}
+
+.letter-head {
+    border: solid rgb(248, 38, 73);
+    border-width: 5vh 7.5vh;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    top: calc(50% - 5vh - 1vh);
+    left: calc(50% - 7.5vh);
+    border-radius: 20%;
+}
+
+.waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+}
+
+.wave {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    border-radius: 50%;
+    animation: waves-animate 2.5s ease-in-out calc(0.25s * var(--i)) infinite;
+}
+
+
+@keyframes letter-animate {
+
+    0%,
+    100% {
+        transform: translateY(-10px);
+    }
+
+    20%,
+    28% {
+        transform: rotate(3deg);
+    }
+
+    22%,
+    30% {
+        transform: rotate(-3deg);
+    }
+
+    70% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes waves-animate {
+    0% {
+        width: 10vmin;
+        height: 10vmin;
+        transform: translate(-5vmin, -5vmin);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+        border: 0.4vmin solid red;
+    }
+
+    100% {
+        width: 50vmin;
+        height: 50vmin;
+        transform: translate(-25vmin, -25vmin);
+        border: 0.4vmin solid blue;
+        opacity: 0;
+    }
+}
+
+/*main*/
+#main {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+        #1b5f9e 30%,
+        #231557 70%,
+        #494b37
+    );
+}
+
+.cat-img {
+    position: absolute;
+    width: 80vmin;
+    height: 80vmin;
+    object-fit: contain;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    transform: translate(calc(90vw - 80vmin), calc(90vh - 80vmin));
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80vw;
+    height: 80vh;
+    margin: 5px;
+    background-color: #eecb9c;
+    font-size: 2rem;
+    font-family: 'Pangolin', sans-serif;
+    ;
+}
+
+
+.details {
+    height: 100%;
+    margin: 2rem;
+    width: max(40vw, 40vh);
+}
+
+.sentence {
+    margin: 1.5rem;
+}
+
+.content .details .last {
+    text-align: right;
+    margin-top: 5rem;
+}
+
+.content .details .first {
+    text-align: left;
+    margin-bottom: 5rem;
+}
+
+.content .details .line {
+    border-bottom: 1px solid rgb(104, 103, 103);
+    padding-bottom: 2px;
+    line-height: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        font-size: 1.5rem;
+        margin: 2px;
+    }
+    .sentence {
+        margin: 1rem;
+    }
+    
+    .content .details .last {
+        margin-top: 2rem;
+    }
+    
+    .content .details .first {
+        text-align: left;
+        margin-bottom: 2rem;
+    }   
+}
+
+@media only screen and (max-width: 820px) {
+    .details {
+        width: 75vw;
+    }
+}
